@@ -72,7 +72,7 @@ public class CmeController {
     @GetMapping("search")
     public Object search(String content,
                          @RequestParam(defaultValue = "1") int page,
-                         @RequestParam(defaultValue = "20") int size){
+                         @RequestParam(defaultValue = "30") int size){
 
         if(StrUtil.isEmpty(content)){
             return Result.fail("搜索内容不能为空");
@@ -115,6 +115,7 @@ public class CmeController {
 
                 List<FileRow> fileRows = new ArrayList<>();
 
+                int rowNo = 0;
                 for(int i =0; i < lines.size(); i++){
                     if(StrUtil.isBlank(lines.get(i))){
                         continue;
@@ -123,12 +124,12 @@ public class CmeController {
                     FileRow fileRow = new FileRow();
                     fileRow.setFileSourceId(fileSource.getId());
                     fileRow.setCategoryId(categoryId);
-                    fileRow.setRowNo(i + 1);
+                    fileRow.setRowNo(++rowNo);
                     fileRow.setContent(StrUtil.trimToEmpty(lines.get(i)));
                     fileRow.setCreatedAt(new Date());
 
                     fileRows.add(fileRow);
-                    if(fileRows.size() == 10000){
+                    if(fileRows.size() == 30000){
                         fileRowService.saveBatch(fileRows);
                         fileRows = new ArrayList<>();
                         System.out.println("---" + i);
