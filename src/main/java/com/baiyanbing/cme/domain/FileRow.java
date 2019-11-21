@@ -14,7 +14,7 @@ import lombok.Data;
  */
 
 @Data
-@TableName(value = "file_row")
+@TableName(schema="public", value = "file_row")
 public class FileRow implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;

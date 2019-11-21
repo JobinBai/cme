@@ -13,7 +13,7 @@ import lombok.Data;
  */
 
 @Data
-@TableName(value = "category")
+@TableName(schema="public", value = "category")
 public class Category implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
