@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../jobs" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../panda/java/Vietnam/skypay" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../panda/java/cashloan/11-passport" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/Vietnam/skypay" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/bluepay_service" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/cashloan/10-commons" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/cashloan/11-passport" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/dokypay_service" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/ind/data-collect-contact" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/ind/data-collect-contact-init" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/moxie-data-dispatcher" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/moxie-feedback-service" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/sacombank_service" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/shangtang-verification" value="PREVIEW" />
+        <entry key="$USER_HOME$/gitlab/java/tongdun-data-service" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/Dev/maven/repository" />
+        <option name="mavenHome" value="$USER_HOME$/Dev/apache-maven-3.3.3" />
+        <option name="userSettingsFile" value="$USER_HOME$/Dev/maven/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="806" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/工作/爱钱帮/code" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CmeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="cme" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.baiyanbing.cme.CmeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

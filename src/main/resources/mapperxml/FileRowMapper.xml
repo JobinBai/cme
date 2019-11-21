@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baiyanbing.cme.mapper.FileRowMapper">
+  <resultMap id="BaseResultMap" type="com.baiyanbing.cme.domain.FileRow">
+    <!--@mbg.generated-->
+    <!--@Table file_row-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="file_source_id" jdbcType="INTEGER" property="fileSourceId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="row_no" jdbcType="INTEGER" property="rowNo" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, file_source_id, category_id, row_no, content, created_at
+  </sql>
+</mapper>

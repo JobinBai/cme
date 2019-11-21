@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>中英对照</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all" />
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <form class="layui-form" style="margin-top:50px;">
+            <div class="layui-form-item">
+                <div class="layui-input-inline" style="text-align:center">
+                    <input type="text" name="content" required placeholder="请输入搜索内容" autocomplete="off" class="layui-input">
+                </div>
+                <button type="button" lay-submit class="layui-btn" lay-filter="query">
+                    <i class="layui-icon">&#xe615;</i> 搜索
+                </button>
+                <button type="button" lay-submit class="layui-btn" lay-filter="import" id="import">
+                    <i class="layui-icon">&#xe67c;</i> 导入
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="content layui-col-md9">
+        <table id="demo" lay-filter="test"></table>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+</body>
+<script type="text/javascript" th:inline="none">
+    layui.use(['layer', 'form', 'upload', 'table'], function(){
+        var layer = layui.layer;
+        var form = layui.form;
+        var upload = layui.upload;
+        var table = layui.table;
+        var $ = layui.$;
+
+        //监听提交按钮
+        form.on('submit(query)', function(data){
+            var content = data.field.content;
+            if(content != '' && content.length > 0){
+                loadTable(content)
+            }else{
+                layer.msg("搜索的内容不能为空")
+            }
+            return false;
+        });
+
+        form.on('submit(import)', function(data){
+            console.log(data);
+            return false;
+        });
+
+
+        loadTable = function(content){
+            table.render({
+                elem: '#demo',
+                url:'/cme/search?content=' + content,
+                parseData: function(result){
+                    return {
+                        "code": result.code, //解析接口状态
+                        "msg": result.msg, //解析提示文本
+                        "count": result.data.total, //解析数据长度
+                        "data": result.data.records //解析数据列表
+                    };
+                },
+                page: true,
+                limit: 20,
+                limits : [20,50,100],
+                cols: [[
+                    {field: 'content', title: '检索结果'}
+                ]],
+                done: function(res, curr, count){
+                    if(res.code != '0000'){
+                        layer.msg(res.msg);
+                        return;
+                    }
+                }
+            });
+        }
+
+
+
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#import' //绑定元素
+            ,url: '/cme/addFile' //上传接口
+            ,accept : 'file'
+            ,exts: 'txt|doc|docx|ass|srt'
+            ,done: function(res){
+                if(res.code == '0000'){
+                    layer.msg("上传成功", {icon: 1})
+                }else{
+                    layer.msg(res.msg)
+                }
+
+            }
+            ,error: function(){
+               console.error(res);
+            }
+        });
+    });
+</script>
+</html>
