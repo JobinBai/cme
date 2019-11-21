@@ -19,6 +19,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,7 @@ public class CmeController {
     }
 
     @GetMapping("search")
-    public Object search(String content,
+    public Object search(String content, Integer sourceId,
                          @RequestParam(defaultValue = "1") int page,
                          @RequestParam(defaultValue = "30") int size){
 
@@ -78,8 +79,11 @@ public class CmeController {
             return Result.fail("搜索内容不能为空");
         }
 
-        LambdaQueryWrapper<FileRow> queryWrapper = new LambdaQueryWrapper<FileRow>()
-                .like(FileRow::getContent, content)
+        LambdaQueryWrapper<FileRow> queryWrapper = new LambdaQueryWrapper<FileRow>();
+        if(sourceId != null){
+            queryWrapper.eq(FileRow::getFileSourceId, sourceId);
+        }
+        queryWrapper.like(FileRow::getContent, content)
                 .orderByDesc(FileRow::getId);
 
         IPage<FileRow> fileRowPage = fileRowService.page(new Page<FileRow>(page, size), queryWrapper);
@@ -147,6 +151,11 @@ public class CmeController {
             e.printStackTrace();
         }
         return  Result.ok(fileSource);
+    }
+
+    @GetMapping("list/source")
+    public Object listSource(){
+        return Result.ok(filesSourceService.list());
     }
 
 }

@@ -29,6 +29,11 @@
                 <div class="layui-input-inline" style="text-align:center">
                     <input type="text" name="content" required placeholder="请输入搜索内容" autocomplete="off" class="layui-input">
                 </div>
+                <div class="layui-input-inline">
+                    <select name="source" id="source">
+                        <option value="">请选择资源</option>
+                    </select>
+                </div>
                 <button type="button" lay-submit class="layui-btn" lay-filter="query">
                     <i class="layui-icon">&#xe615;</i> 搜索
                 </button>
@@ -56,8 +61,9 @@
         //监听提交按钮
         form.on('submit(query)', function(data){
             var content = data.field.content;
+            var sourceId = data.field.source;
             if(content != '' && content.length > 0){
-                loadTable(content)
+                loadTable(content, sourceId)
             }else{
                 layer.msg("搜索的内容不能为空")
             }
@@ -70,10 +76,11 @@
         });
 
 
-        loadTable = function(content){
+        loadTable = function(content, sourceId){
             table.render({
                 elem: '#demo',
-                url:'/cme/search?content=' + content,
+                url:'/cme/search',
+                where: {"content": content, "sourceId": sourceId},
                 parseData: function(result){
                     return {
                         "code": result.code, //解析接口状态
@@ -104,6 +111,16 @@
             });
         }
 
+
+        $.get("/cme/list/source", function(res){
+            if(res.code == '0000' && res.data != null){
+                $.each(res.data, function(i, item){
+                    $('#source').append(new Option(item.name, item.id));
+                    console.info(new Option(item.name, item.id))
+                });
+                form.render("select");
+            }
+        });
 
 
         //执行实例
