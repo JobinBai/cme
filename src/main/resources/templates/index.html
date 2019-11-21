@@ -12,6 +12,14 @@
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all" />
+    <style>
+        .content .layui-table-cell{
+            height:auto;
+            overflow:visible;
+            text-overflow:inherit;
+            white-space:normal;
+        }
+    </style>
 </head>
 <body>
 <div class="layui-container">
@@ -31,7 +39,7 @@
         </form>
     </div>
 
-    <div class="content layui-col-md9">
+    <div class="content layui-col-md12">
         <table id="demo" lay-filter="test"></table>
     </div>
 </div>
@@ -78,17 +86,23 @@
                 limit: 30,
                 limits : [30,50,100],
                 cols: [[
-                    {field: 'content', title: '检索结果'}
+                    {type: 'numbers', title: '序号', width: '5%'},
+                    {field: 'content', title: '检索结果', width:'95%', templet: function(d) {
+                        var text = d.content;
+                        var arr = text.split(content);
+                        text = arr.join('<span style="background: #cfe5ff;border-radius: 1px;">' + content + '</span>');
+                        return text;
+                    }}
                 ]],
                 done: function(res, curr, count){
                     if(res.code != '0000'){
                         layer.msg(res.msg);
                         return;
                     }
+
                 }
             });
         }
-
 
 
 
