@@ -24,7 +24,7 @@
 <body>
 <div class="layui-container">
     <div class="layui-row">
-        <form class="layui-form" style="margin-top:50px;">
+        <form class="layui-form" style="margin-top:50px;" onkeydown="if(event.keyCode==13){return false}">
             <div class="layui-form-item">
                 <div class="layui-input-inline" style="text-align:center">
                     <input type="text" name="content" required placeholder="请输入搜索内容" autocomplete="off" class="layui-input">
