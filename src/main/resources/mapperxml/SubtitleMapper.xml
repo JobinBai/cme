@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baiyanbing.cme.mapper.SubtitleMapper">
+  <resultMap id="BaseResultMap" type="com.baiyanbing.cme.domain.Subtitle">
+    <!--@mbg.generated-->
+    <!--@Table subtitle-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tv_name" jdbcType="VARCHAR" property="tvName" />
+    <result column="season" jdbcType="INTEGER" property="season" />
+    <result column="episode" jdbcType="INTEGER" property="episode" />
+    <result column="row" jdbcType="INTEGER" property="row" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, tv_name, season, episode, `row`, content
+  </sql>
+</mapper>

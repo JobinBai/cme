@@ -1,11 +1,15 @@
 package com.baiyanbing.cme.utils;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.StrUtil;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultStyledDocument;
+import javax.swing.text.rtf.RTFEditorKit;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -54,6 +58,15 @@ public class FileSourceParser {
             }
 
         }
+    }
+
+    public static List<String> parseRtf(InputStream in) throws Exception {
+        DefaultStyledDocument styledDoc = new DefaultStyledDocument();
+        // 创建文件输入流
+        new RTFEditorKit().read(in, styledDoc, 0);
+        String  result = new String(styledDoc.getText(0, styledDoc.getLength()));
+        List<String> list = CollectionUtil.newArrayList(result.split("\n"));
+        return list;
     }
 
 
