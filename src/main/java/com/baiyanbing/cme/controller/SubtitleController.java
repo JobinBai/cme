@@ -58,7 +58,7 @@ public class SubtitleController {
         if(sourceId != null){
         }
         queryWrapper.like(Subtitle::getContent, content)
-                .orderByDesc(Subtitle::getId);
+                .orderByAsc(Subtitle::getSeason, Subtitle::getEpisode, Subtitle::getRow);
 
         IPage<Subtitle> pageInfo = subtitleService.page(new Page<Subtitle>(page, size), queryWrapper);
         return  Result.ok(pageInfo);
