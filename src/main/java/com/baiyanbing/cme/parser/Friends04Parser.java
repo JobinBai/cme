@@ -21,12 +21,12 @@ import java.util.List;
 public class Friends04Parser {
 
 
-    public void parse(){
+    public void parse(String fileDir){
         String startWith = "Dialogue";
         String replaceStr[] =  {"{\\fe134}","{\\fs20}","{\\fn方正黑体简体}", "{\\fad(500", "{\\fad(500,500)}", "{\\c&HFFFFFF&}", "{\\pos(190,286)}", "{\\fs16}", "{\\fn方正准圆简体}", "{\\bord0}", "{\\fs24}", "{\\fn方正综艺简体}", "{\\fe0}", "{\\c&H26F4FF&}", "{\\fe134}", "{\\fn方正宋黑简体}", "{\\c&HFFAE1A&}", "{\\fscy100}", "{\\fe134}", "{\\fn方正准圆简体}", "{\\c&HFFFFFF&}", "{\\fs16}", "{\\fn方正准圆简体}", "{\\fs14}", "{\\b0}", "{\\bord0}", "{\\shad0}", "{\\c&HFFFFFF&}", "{\\3c&H2F2F2F&}", "{\\4c&H000000&}", "{\\fsp0}", "{\\fs16}", "{\\c&HFFFFFF&}", "{\\c&H26F4FF&}", "{\\fn方正综艺简体}", "{\\fs24}", "{\\fn方正综艺简体}", "{\\fs14}", "{\\b0}", "{\\bord0}", "{\\shad0}", "{\\c&HFFFFFF&}", "{\\3c&H2F2F2F&}", "{\\4c&H000000&}"};;
 
 
-        File[] files = FileUtil.ls("/Users/Jobin/Downloads/第4季r");
+        File[] files = FileUtil.ls(fileDir);
         for(File file : files){
             if(file.isDirectory()){
                 continue;
@@ -74,7 +74,7 @@ public class Friends04Parser {
 
     public static void main(String[] args) {
         Friends04Parser parser = new Friends04Parser();
-        parser.parse();
+        parser.parse("/users/Jobin/老友记");
     }
 
 

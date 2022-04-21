@@ -34,14 +34,12 @@ public class DhParser {
 
 
 
-    public void parse() throws Exception {
-        File[] files = FileUtil.ls("/Users/Jobin/Downloads/绝望zfu.剧本");
-
+    public void parse(String fileDir) throws Exception {
+        File[] files = FileUtil.ls(fileDir);
 
         List<Subtitle> subtitleList = new ArrayList<>();
 
         for(File file : files){
-            System.out.println("-------------------" + file.getName());
 
             String fileName = file.getName();
             int season = Integer.parseInt(fileName.substring(1,3));
